@@ -165,7 +165,7 @@ async function fetchOpenGame(){
           </div>
         </div>
 
-        <div className=' flex justify-between items-center bg-white w-full h-20 px-5 rounded-2xl'>
+        <div className=' flex justify-between items-center bg-white w-full h-20 px-5 rounded-2xl mb-3'>
           <div className='flex justify-center items-center gap-2'>
             <div>
               <img className=' size-12' src="https://avatar.iran.liara.run/username?username=Ram+kumar" alt="" />
@@ -176,7 +176,22 @@ async function fetchOpenGame(){
             </div>
           </div>
           <div>
-            <p className=' font-semibold text-rose-600'>-₹ 1113.396</p>
+            <p className=' font-semibold text-rose-600'>-₹ 1113.36</p>
+          </div>
+        </div>
+
+        <div className=' flex justify-between items-center bg-white w-full h-20 px-5 rounded-2xl mb-3'>
+          <div className='flex justify-center items-center gap-2'>
+            <div>
+              <img className=' size-12' src="https://avatar.iran.liara.run/username?username=Shubham+Sharma" alt="" />
+            </div>
+            <div>
+              <p className='text-black font-semibold'>Shubham sharma</p>
+              <p className='text-sm font-semibold text-gray-500'>12 oct 2024</p>
+            </div>
+          </div>
+          <div>
+            <p className=' font-semibold text-green-600'>-₹ 2583.69</p>
           </div>
         </div>
       </div>
