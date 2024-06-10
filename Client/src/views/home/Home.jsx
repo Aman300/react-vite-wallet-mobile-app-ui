@@ -216,7 +216,7 @@ async function fetchOpenGame(){
               <img className=' size-12' src="https://avatar.iran.liara.run/username?username=Shubham+Sharma" alt="" />
             </div>
             <div>
-              <p className='text-black font-semibold'>Shubham sharma</p>
+              <p className='text-black font-semibold'>Shubham S</p>
               <p className='text-sm font-semibold text-gray-500'>12 oct 2024</p>
             </div>
           </div>

@@ -1,6 +1,7 @@
 // Sidebar.js
 import { useState, } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import 'animate.css';
 
 
 
@@ -71,7 +72,7 @@ const Sidebar = () => {
     <>
 
         {/* Navigation links for larger screens */}
-        <div className={`fixed inset-y-0 left-0 z-50 w-64  shadow-sm transition-transform transform ${isMenuOpen ? 'translate-x-0 text-center flex justify-center items-center' : '-translate-x-full'}`}>
+        <div className={`fixed inset-y-0 left-0 z-50 w-64  shadow-sm transition-transform transform ${isMenuOpen ? 'animate__animated animate__fadeInLeft animate__faster translate-x-0 text-center flex justify-center items-center' : '-translate-x-full'}`}>
           <div className="fixed flex flex-col top-0 left-0 w-56 bg-white h-full shadow-2xl rounded-r-2xl">
             <div className="flex items-center justify-around h-14 shadow-sm">
               <div className=" font-bold text-xl items-center">
