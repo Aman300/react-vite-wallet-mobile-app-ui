@@ -8,7 +8,7 @@ import ReferEarn from './views/home/ReferEarn';
 import Profile from './views/home/Profile';
 import Support from './views/home/Support';
 import TermLegal from './views/home/TermLegal';
-import Games from './views/home/Games';
+import Transaction from './views/home/Transaction';
 import PrivateRoutes from './utils/PrivateRoutes';
 
 export default function App() {
@@ -34,7 +34,7 @@ export default function App() {
             }
           >
             <Route path="/" element={<Home />} />            
-            <Route path="/games" element={<Games />} />
+            <Route path="/transaction" element={<Transaction />} />
             <Route path="/wallet" element={<Wallet />} />
             <Route path="/refer&earn" element={<ReferEarn />} />
             <Route path="/profile" element={<Profile />} />

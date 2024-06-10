@@ -6,6 +6,8 @@ import { useFormik } from 'formik';
 import { createGameRoute, deleteGameRoute } from '../../utils/APIRoutes';
 import socket from "../../utils/Socket";
 import 'animate.css';
+import ReactApexChart from 'react-apexcharts';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const validate = values => {
@@ -19,7 +21,9 @@ const validate = values => {
 };
 
 
-function Home() {
+function Transaction() {
+
+  const navigate = useNavigate();
 
   let userId = JSON.parse(localStorage.getItem("user"))
 
@@ -116,27 +120,81 @@ async function fetchOpenGame(){
   }, []);
 
 
+  const [options, setOptions] = useState({
+    chart: {
+      type: 'bar',
+      height: 325
+    },
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        columnWidth: '55%',
+        endingShape: 'rounded',
+        borderRadius: 3,
+        color: 'black' // Setting bar color to black
+      },
+    },
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      show: true,
+      width: 2,
+      colors: ['transparent']
+    },
+    xaxis: {
+      categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    },
+    // yaxis: {
+    //   title: {
+    //     text: '$ (thousands)'
+    //   }
+    // },
+    fill: {
+      opacity: 1,
+      colors: ['#000000'] // Setting bar color to black
+    }
+  });
+  
+
+  const [series, setSeries] = useState([{
+    name: 'Net Profit',
+    data: [44, 55, 45, 56, 81, 58, 63, 30, 66]
+  }]);
+
+
+
+
   return (
     <>
 
     <div className='h-screen p-5'>
 
-      <div className='bg-black h-44 rounded-3xl w-full flex justify-center items-center mb-8'>
-          <p className='text-white font-semibold '>Welcome, Aman</p>
+    <div className='flex justify-between mb-3'>                   
+        
+    <svg xmlns="http://www.w3.org/2000/svg" onClick={() => (navigate("/"))}  fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 cursor-pointer hover:text-rose-600">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+    </svg>
+        
+     <p className='text-center font-semibold text-black mb-6'>Transaction</p>
+
+     <p className='text-center font-semibold text-black mb-6'></p>
+      
+        
+    </div>
+
+     
+
+      <div className='bg-black text-white h-12 rounded-3xl w-full flex justify-around items-center mb-8'>
+          <a href="">1W</a>
+          <a href="">1M</a>
+          <a href="">6M</a>
+          <a href="">1Y</a>
+          <a href="">ALL</a>
       </div>
 
-      <div className='grid grid-cols-2 gap-3 mb-8'>
-        <button className='bg-[#ffcb66] py-3 px-4 rounded-full font-semibold flex justify-center items-center gap-1'>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5">
-          <path d="M3.105 2.288a.75.75 0 0 0-.826.95l1.414 4.926A1.5 1.5 0 0 0 5.135 9.25h6.115a.75.75 0 0 1 0 1.5H5.135a1.5 1.5 0 0 0-1.442 1.086l-1.414 4.926a.75.75 0 0 0 .826.95 28.897 28.897 0 0 0 15.293-7.155.75.75 0 0 0 0-1.114A28.897 28.897 0 0 0 3.105 2.288Z" />
-        </svg>
-        Transfer</button>
-        <button className='bg-[#b1deb7] py-3 px-4 rounded-full font-semibold flex justify-center items-center gap-1'>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5">
-          <path d="M10 2a.75.75 0 0 1 .75.75v5.59l1.95-2.1a.75.75 0 1 1 1.1 1.02l-3.25 3.5a.75.75 0 0 1-1.1 0L6.2 7.26a.75.75 0 1 1 1.1-1.02l1.95 2.1V2.75A.75.75 0 0 1 10 2Z" />
-          <path d="M5.273 4.5a1.25 1.25 0 0 0-1.205.918l-1.523 5.52c-.006.02-.01.041-.015.062H6a1 1 0 0 1 .894.553l.448.894a1 1 0 0 0 .894.553h3.438a1 1 0 0 0 .86-.49l.606-1.02A1 1 0 0 1 14 11h3.47a1.318 1.318 0 0 0-.015-.062l-1.523-5.52a1.25 1.25 0 0 0-1.205-.918h-.977a.75.75 0 0 1 0-1.5h.977a2.75 2.75 0 0 1 2.651 2.019l1.523 5.52c.066.239.099.485.099.732V15a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3.73c0-.246.033-.492.099-.73l1.523-5.521A2.75 2.75 0 0 1 5.273 3h.977a.75.75 0 0 1 0 1.5h-.977Z" />
-        </svg>
-        Request</button>
+      <div className='grid grid-cols-1 gap-3 mb-8'>
+      <ReactApexChart options={options} series={series} type="bar" />
       </div>
 
       <div>
@@ -201,4 +259,4 @@ async function fetchOpenGame(){
   )
 }
 
-export default Home
+export default Transaction
